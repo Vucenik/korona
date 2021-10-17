@@ -1,0 +1,567 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    
+}
+:root{
+--gumb_boja: #2104D8;
+--radial_gradient_boja:#3D458A;
+--boja_pozadine: #131313;
+--text-gradient:#A5D9FF;
+--text-gradient-stop:#7399fb;
+--font_boja_glavna :#ffffff;
+--boja-aside-dashbord: #1D1818;
+
+
+
+
+}
+
+body{
+    position:relative;
+    background-color:#E5E5E5;
+    font-family: Roboto, sans-serif;
+    color:var(--font_boja_glavna);
+    width:100%;
+    height:100%;
+    overflow: hidden;
+  
+}
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+a{
+    color:var(--font_boja_glavna);  
+    text-decoration: none;
+    display:inline-block;
+    width:100%;
+    height:100%;
+    padding:0.5em 1em
+
+}
+#kontejner_body{
+    background-color: var(--boja_pozadine);
+    background-image: radial-gradient(circle 50vw at 40% 30%, var(--radial_gradient_boja)-150% ,var(--boja_pozadine)150%);
+position:absolute;
+top:0;
+left:0;
+overflow: auto;
+    width:100%;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+header{
+    margin:1em;
+    display: flex;
+    align-items: center;
+    width:100%;
+    max-width:60em;
+}
+
+#id_hamburger{
+   display:none;
+}
+
+label.svg_label{
+    position:relative;
+  left:-200em;
+
+}
+
+label.svg_label{
+    display:inline-block;
+  width:2em;
+  height:2em;
+  background-color: transparent;
+}
+
+.svg_hamburger{
+
+  width:100%;
+  height: 100%;
+}
+line{
+  stroke:var(--font_boja_glavna);
+  stroke-width:13;
+  stroke-linecap:round ;
+  fill:none;
+transition:transform 0.5s;
+
+}
+#id_hamburger:checked+div>label>.svg_hamburger line:first-of-type{
+    transform-origin: center center;
+  transform:rotateZ(45deg) translateY(30%) ;
+}
+#id_hamburger:checked+div>label>.svg_hamburger line:nth-child(2){
+    transform:scaleX(0);
+  transform-origin: 10% 10%;
+}
+#id_hamburger:checked+div>label>.svg_hamburger line:last-of-type{
+    transform-origin: center center;
+  transform:rotateZ(-45deg) translateY(-30%) ;
+}
+
+
+
+
+header>div>a{
+    font-size: 1.5em;
+    font-weight: bolder;
+
+    width:auto;
+   
+    text-align:left;
+    margin-left: 1em;
+
+}
+header>nav{
+    flex:2 1 auto;
+}
+ul{
+    list-style: none;
+    display:flex;
+    justify-content:center;
+
+
+}
+
+header ul>li{
+border-radius:2em;
+    border-bottom: 1px solid transparent;
+    transition:background 0.5s ,border 0.5s ,transform 0.5s;
+}
+header ul>li:first-child{
+    margin-left:auto;
+}
+header ul>li:last-child{
+   
+    margin-right:2em;
+    margin-left:auto;
+    
+    
+}
+header ul>li:hover{
+    background-image: radial-gradient( var(--radial_gradient_boja) -50% ,var(--boja_pozadine) 150%);
+    border-bottom: 1px solid var(--font_boja_glavna);
+    transform: translateY(-3%);
+
+}
+main{
+    width:100%;
+    height:100%;
+    max-height:40vh;
+   display:flex;
+   flex-direction: column;
+   justify-content:center;
+   align-items: center;
+   
+}
+h1{
+    margin-bottom: 0.3em;
+    font-weight: bolder;
+    font-stretch: condensed;
+    font-size:max(2.5em,3.5vw);
+
+}
+h1>span{
+    -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  
+    background-image: linear-gradient( 90deg,  var(--text-gradient-stop),var(--text-gradient));
+    background-clip: text;
+    color:transparent;
+}
+main>p{
+    max-width:40em;
+    font-size:max( 0.8em,1vw);
+}
+main>a{
+    margin-top: 2em;
+    display:flex;
+    width:10em;
+    height:3em;
+    background-color: var(--gumb_boja);
+    border-radius: 1em;
+    justify-content: center;
+    align-items: center;
+
+ border-bottom: 1px solid transparent;
+    transition:background 1s ,border 1s ,transform 1s;
+}
+main>a:hover{
+    background-image: radial-gradient( var(--gumb_boja)  ,var(--boja_pozadine) 200%);
+    border-bottom: 1px solid var(--font_boja_glavna);
+    transform: translateY(-3%); 
+}
+
+.modal{ 
+     position:absolute;
+     top:0;
+    left:0;
+     left:-200em;
+  /*  opacity: 0;
+    transform:scale(0);
+    transition: opacity 0.25s, transform 0.25s;*/
+}
+.modal:target{
+  
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+/*    opacity: 1;
+    transform:scale(1);*/
+ 
+   
+   
+}
+
+.modal>a{
+    background-color: rgba(255, 192, 203, 0.199);
+    background-image: radial-gradient( var(--radial_gradient_boja) -250% ,var(--boja_pozadine) 150%); 
+    opacity:0.8;
+    width:100%;
+    height:100%;
+    filter:hue-rotate(45deg);
+    
+  
+}
+.modal>div{
+    opacity: 0;
+    display: flex;
+  
+  
+    position:absolute;
+    top:50vh;
+    left:50%;
+    width:90%;
+    max-width:40em;
+    height:40vh;
+    border-bottom: 1px solid var(--font_boja_glavna);
+   
+    box-shadow:-1em 0em 2em var(--boja_pozadine);
+    border-radius: 1em;
+
+  
+  transform: scale(0) translateX(-50%);
+  transition:  opacity 0.5s,transform 0.8s ;
+
+}
+.modal:target>div{
+
+   
+  
+z-index: 1000;
+   
+    
+    background-image: radial-gradient( var(--radial_gradient_boja) -250% ,var(--boja_pozadine) 150%); 
+    opacity: 1;
+    transform:scale(1) translateX(-50%);
+ 
+}
+.modal>div>aside{
+    flex:1 1 auto;
+   max-width:20%;
+    display:flex;
+    flex-direction: column;
+    background-color: var(--boja-aside-dashbord);
+}
+.modal>div>aside h3{
+    display: block;
+    text-align: center;
+    padding:0.5em 0;
+    height:5em;
+    background-image: url("./IMG/hrvatska.svg");
+    background-repeat: no-repeat;
+    background-size: 3em 3em;
+    background-position: 0.5em 1.5em;
+}
+.modal>div>aside>nav>ul{
+    flex-direction: column;
+    text-align: center;
+}
+
+.modal>div>div{
+    flex:2 1 auto;
+}
+.modal>div>div>div:first-of-type{
+    display:flex;
+    align-items: center;
+  
+    
+    padding:0.2em;
+}
+.modal>div>div>div:first-of-type h2{
+    margin-left:0.5em;
+    font-size: 1.4em;
+    font-weight: normal;
+    
+}
+.modal>div>div>div:first-of-type nav{
+   
+ 
+    margin-left:auto;
+    margin-right:0.5em;
+}
+.modal>div>div>div:first-of-type nav button,.modal>div>div>div:first-of-type nav label{
+    border:none;
+    color:var(--font_boja_glavna);
+    padding:0.3em 0.5em;
+    background-color: var(--gumb_boja);
+    border-radius: 5px;
+    margin-right:0.5em;
+    width:5em;
+    
+ border-bottom: 1px solid transparent;
+    transition:background 1s ,border 1s ,transform 1s;
+
+} 
+.modal>div>div>div:first-of-type nav button:hover,.modal>div>div>div:first-of-type nav label:hover{
+    background-image: radial-gradient( var(--gumb_boja)  ,var(--boja_pozadine) 200%);
+    border-bottom: 1px solid var(--font_boja_glavna);
+    transform: translateY(-3%); 
+}
+
+.chart{
+    background-color: var(--boja-aside-dashbord);
+    width:90%;
+    height: 75%;
+    margin:5%;
+
+}
+.chart h3{
+    
+    font-size: 1em;
+    font-weight: normal;
+    padding:0.4em;
+
+
+}
+.chart>div{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.chart>.canvas{
+    width:90%;
+    height:80%;
+    margin:0 auto;
+    background-image: radial-gradient( var(--radial_gradient_boja) -250% ,var(--boja_pozadine) 150%); 
+
+    
+}
+.chart canvas{
+   width:100%;
+   
+}
+#dashbord input[type='radio']{
+  display:none;
+
+}
+#dashbord input[type='radio']:checked+li>label{
+    background-color:#800080;
+
+}
+#dashbord aside>nav>ul>li:last-child{
+   
+}
+select{
+    max-width:100%;
+    color:white;
+    background-color:var(--boja-aside-dashbord) ;
+    border:none;
+  
+}
+
+@media(max-width:40em){
+    a{
+        padding:0.5em 0.5em
+    }
+
+    header>div>a{
+    
+  
+    margin-left: 0.5em;
+
+}
+header ul>li:last-child{
+   
+   margin-right:1em;
+     
+   
+}
+
+    main>p{
+        max-width: 32em;
+        padding: 1em;
+
+    } 
+
+     .modal>div>aside h3{
+        font-size: 1em;
+    }
+
+    .modal>div>div>div:first-of-type h2{
+        font-size: 1em;
+    }
+
+    .modal>div>aside>nav>ul{
+    font-size: 0.8em;
+}
+.modal>div>div>div:first-of-type h2{
+    margin-left:0.2em;
+    font-size: 1em;
+
+}
+
+.modal>div>div>div:first-of-type nav button,.modal>div>div>div:first-of-type nav label{
+    font-size: 0.8em;
+    padding:0.3em 0.5em;
+    background-color: var(--gumb_boja);
+    border-radius: 5px;
+    margin-right:0.5em;
+    width:5em;
+
+}
+.chart h3,.chart h3+span{
+    
+    font-size: 0.8em;
+ }
+
+}
+ @media(max-width:28em){
+    header{
+        min-height: 7em;
+        margin:0em;
+        padding:0.2em;
+        flex-direction: column;
+
+    }
+    header>div{
+        width:100%;
+        display:flex;
+        align-items: center;
+        justify-content:space-between;
+    }
+    header>div>a{
+        text-align:center;
+    margin-left: 0em;
+    height:auto;;
+ 
+   
+    }
+    header>nav{
+        width:100%;
+        height:100%;
+        flex:0 1 auto;
+      
+    }
+    header>nav>ul{
+
+      position:relative;
+      left:-200em;
+        height:auto;
+        display:flex;
+opacity: 0;
+flex-wrap: wrap;
+ justify-content:center;
+ transform:scale(0);
+ transition: opacity 0.5s,transform 0.5s;
+
+
+}
+label.svg_label{
+    position:static;
+    margin-right:1em;
+  left:0;
+
+}
+#id_hamburger:checked~nav.glavni_meni>ul{
+    left:0;
+    opacity:1;
+    transform:scale(1);
+
+}
+
+
+header ul>li:first-child{
+    margin-left:0;
+}
+header ul>li:last-child{
+   
+    margin-right:0em;
+    margin-left:0;
+    
+    }
+    header>ul>li{
+        height:auto;
+    }
+    header nav>ul a{
+        padding:0.3em 0.3em;
+        height:auto;
+    }
+main{
+    max-height:20em;
+    justify-content:flex-start;
+
+    
+}
+
+    h1{
+  
+    font-size:1.8em;
+    padding: 0 0.5em;
+}
+
+
+
+main>p{
+  padding:0.2em 1em;
+    font-size:0.7em;
+}
+
+    .modal>div{
+        top:53vh;
+        width:95%;
+        height:auto;
+        flex-direction: column-reverse;
+
+    }
+    .modal>div>aside{
+    flex:1 1 auto;
+   max-width:100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    background-color: var(--boja-aside-dashbord);
+}
+.modal>div>aside h3{
+padding-left: 2em;
+
+height:2em;
+    background-image: url("./IMG/hrvatska.svg");
+    background-repeat: no-repeat;
+    background-size: 2em 2em;
+    background-position: 0em 0.2em;
+}
+.modal>div>aside>nav>ul{
+    
+    align-items: center;
+    justify-content:flex-end;
+    flex-direction: row;
+    text-align: center;
+}
+
+
+
+ }
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coronavirus Daily Progress</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./IMG/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./IMG/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./IMG/favicon-16x16.png">
+<link rel="stylesheet" href="korona_screen.css" media = "screen">
+    <script defer src="./JAVASCRIPT/korona_script.js"></script>
+    <style>
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="" id="kontejner_body">
+    <header>
+        <input type="checkbox" name="" id="id_hamburger">
+        <div>
+        <a href="#">UNX</a>
+        <label for="id_hamburger" class="svg_label">
+            <svg height="100" width="100" viewBox="0 0 100 100" class="svg_hamburger">
+                <line x1="10%" y1="20%" x2="90%" y2 ="20%" />
+                <line x1="10%" y1="50%" x2="60%" y2 ="50%" />
+                <line x1="10%" y1="80%" x2="90%" y2 ="80%" />
+                </svg>
+        </label>
+    </div>
+       <nav class="glavni_meni">
+           <ul>
+               
+               <li><a href="https://www.koronavirus.hr">Croatia</a></li>
+               <li><a href="https://www.ecdc.europa.eu/">Europa</a></li>
+               <li><a href="https://www.worldometers.info/coronavirus/">World</a></li>
+            <!--  <li><a href="#">Contact</a></li>--> 
+               <li><a href="#dashbord">Dashbord</a></li>
+
+           </ul>
+     </nav>
+
+    </header>
+    <main>
+        <h1>
+            The Best Way to
+            <br>
+            <span>Track coronavirus Daily Progress</span>
+        </h1>
+  
+        <p>UNX Allows you to track  coronavirus. Sometimes coronaviruses that infect animals can evolve and make people sick and become a new human coronavirus. Three recent examples of this are 2019-nCoV, SARS-CoV, and MERS-CoV.</p>
+
+ <!--      <a href="#" id="">Try this app</a>--> 
+
+
+    </main>
+<!--kontejner-body--></div>
+<section id="dashbord" class="modal">
+    <a href="#"></a>
+    <div>
+    <aside>
+      <h3>Croatia</h3>
+       <nav>
+           <ul>
+               <li><a href="#">Home Screen</a></li>
+            <!--<li><a href="#">Dashbord</a></li>-->   
+               <li>Select</li>
+           </ul>
+       </nav>
+        
+    </aside>
+    <div>
+        <div>
+            <h2>Dashbord</h2>
+            <nav>
+             
+                <ul>
+                    <input type="radio" name="izbor_graf" id="aktivni" value= "broj_aktivni" checked>
+
+                    <li><label for="aktivni">active</label></li>
+                    <input type="radio" name="izbor_graf" id="broj_zarazenih" value= "broj_zarazenih">
+                    <li><label for="broj_zarazenih">infected</label></li>
+                    <input type="radio" name="izbor_graf" id="broj_umrlih" value= "broj_umrlih">
+                    <li><label for="broj_umrlih">death</label></li>
+                </ul>
+            </nav>
+       <!--naslov dasbord--> </div>
+            <div class="chart">
+                <div>
+                <h3>Quest Charts</h3>
+                <span>Corona cases</span>
+            </div>
+            <div class="canvas">
+                <canvas id="graf"></canvas>
+            </div>
+
+         <!--chart-->   </div>
+        
+   <!-- desni kontejner--> </div>
+
+    </div>
+  
+</section>
+    <script>
+        
+    </script>
+</body>
+</html>
